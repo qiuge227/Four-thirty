@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="renderer" content="webkit">
+<meta name="keywords" content=""/>
+<meta name="description" content=""/> 
+<link rel="shortcut icon" href=""/>
+<title>托管班的主页</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script language="javascript">
+// 初始化，打开网页窗口是光标在用户名的文本框闪烁
+function ini() {
+    f1.username.focus();
+}
+
+//检验用户名填写长度
+function chkusername() {
+    var username = f1.username.value;
+
+    if (username.length == 0) {
+        document.getElementById("err_username").innerHTML = "*用户名不能为空！";
+        document.getElementById("err_username").style.color = "red";
+        f1.username.focus();
+        return false;
+    } else if (username.length > 15 || username.length < 6) {
+        document.getElementById("err_username").innerHTML = "*用户名过短或过长！";
+        document.getElementById("err_username").style.color = "red";
+        return false;
+    }
+    document.getElementById("err_username").innerHTML = "";
+
+    return true;
+}
+
+//检验密码长度
+function chkpwd() {
+    var pwd = f1.pwd.value;
+
+    if (pwd.length == 0) {
+        document.getElementById("err_pwd").innerHTML = "*密码不能为空！";
+        document.getElementById("err_pwd").style.color = "red";
+        return false;
+    } else if (pwd.length > 15 || pwd.length < 6) {
+        document.getElementById("err_pwd").innerHTML = "*密码过短或过长！";
+        document.getElementById("err_pwd").style.color = "red";
+        return false;
+    }
+    document.getElementById("err_pwd").innerHTML = "";
+    return true;
+
+}
+
+//点击"立即注册"图片的时候检验各必填项是否都填写正确并获取填写项内容并输出，之后提交注册表单
+function chkf1() {
+    var username = f1.username.value;
+    var pwd = f1.pwd.value;
+    if (chkusername() && chkpwd()) {
+        alert("您填写的内容如下：\n用户名：" + username + " \n密码：" + pwd);
+		 window.open('revise.html');
+        return true;
+    }
+
+    else return false;
+}
+
+
+</script>
+</head>
+<body>
+<div class="login">
+<a id="modal-929631" href="#modal-container-929631" role="button" data-toggle="modal">登陆</a>
+			
+			<div id="modal-container-929631" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" onload="ini()">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+						会员登陆
+					</h3>
+				</div>
+                <form action="" method="post" name="f1">
+				<div class="modal-body">
+					<div class="input-group" style="margin-bottom:10px;">用户名:
+     								 <input type="text" class="form-control" name="username" class="input"  onblur="chkusername()" /> <span id="err_username"></span>
+   					</div>
+    				<div class="input-group">密&nbsp;&nbsp;码:
+     								 <input type="password" class="form-control"  name="pwd" class="input" onblur="chkpwd()" /><span id="err_pwd"></span>
+   					</div>
+				</div>
+				<div class="modal-footer">
+					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>                     <button class="btn btn-primary"  onclick="chkf1()" >登陆</button>
+				</div>
+                </form>
+                
+			  </div>
+</div>
+<div  id="search">
+                  	<a href="index.html"><img src="images/search_img/school.png"/></a>
+</div>
+<!-- 背景自动切换开始 -->
+<div id="full-screen-slider">
+<ul id="slides">
+<li><img src="images/body (1).jpg"/></li>
+<li><img src="images/body (2).jpg"/></li>
+<li><img src="images/body (3).jpg"/></li>
+</ul>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid" id="search_list">
+    	<!--左栏开始--->
+		<div class="span8">
+        	<div class="span6">
+                <!--轮播图开始-->
+                <div class="carousel slide" id="carousel-236344">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="" src="images/body (1).jpg" />
+                        </div>
+                        <div class="item">
+                            <img alt="" src="images/body (2).jpg" />
+                        </div>
+                        <div class="item">
+                            <img alt="" src="images/body (3).jpg" />
+                        </div>
+                    </div> <a data-slide="prev" href="#carousel-236344" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-236344" class="right carousel-control">›</a>
+                </div>
+                <!--轮播图结束-->
+            </div>
+            <div class="span6">
+                <strong>地区：</strong>北京市朝阳区<br/>
+                <strong>性质：</strong>公办<br/>
+                <strong>电话：</strong>010-85635120<br/>
+                <strong>邮编：</strong>100020<br/>
+                <strong>学段：</strong>小学 初中<br/>
+                <strong>校址: </strong>北京市朝阳区日坛北路1号<br/>
+                <strong>网址：</strong><a href="http://www.zcoder.com.cn">http://fcdxx.bjchyedu.cn...</a>
+            </div>
+            <div class="span12">
+                <h4>托管班简介</h4>
+                <p>　芳草地国际学校是一所中学建制的兼收中外学生的完全小学。学校始建于1956年，时为外交部子弟小学。柬埔寨西哈努克亲王的两位王子曾来校就读。1973年，随着和我国建交国家的增多，在周恩来总理的亲切关怀下，学校开始大规模接收驻华使馆人员的子女和外籍及港澳台学生入学。五十寒暑走过，芳草地小学以辉煌的办学业绩，成为享誉海内外的京城名校。为满足社会的需求，今日芳草地小学已形成集团化分址办学的规...[详细]</p>
+			</div>
+            <div class="span12">
+            	<h4>名师风采</h4>
+            </div>
+            <div class="span12">
+                <div class="span6" id="teacher_con">
+                    <div class="media">
+                        <a href="javascript:;" class="pull-left"><img src="images/search_img/people.jpg" class="media-object" alt='' /></a><h4><strong>姓名：</strong>张治齐 &nbsp;&nbsp;<strong>职务：</strong>校长</h4>
+                            <p><strong>简介：</strong>张治齐，男，生于1962年5月11日，北京人，汉族，中共党员，研究生学历，小学高级教师</p>
+                    </div>
+                </div>
+                <div class="span6" id="teacher_con">
+                    <div class="media">
+                        <a href="javascript:;" class="pull-left"><img src="images/search_img/people.jpg" class="media-object" alt='' /></a><h4><strong>姓名：</strong>张治齐 &nbsp;&nbsp;<strong>职务：</strong>校长</h4>
+                            <p><strong>简介：</strong>张治齐，男，生于1962年5月11日，北京人，汉族，中共党员，研究生学历，小学高级教师</p>
+                    </div>
+                </div>
+            </div>
+			<div class="span12">
+                <h4>招生范围</h4>
+                <p>可以接收驻华使馆人员的子女和外籍及港澳台学生入学。分址办学，设有本部、二部和远洋分校三部分。</p>
+			</div>
+            
+		</div>
+    	<!--左栏结束--->
+    	<!--右栏开始--->
+		<div class="span4">
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+            
+		</div>
+    	<!--右栏结束--->
+        
+	</div>
+</div>
+
+<div id="full-screen-footer">
+<div class="footer">
+<p>@四点半专业托管班搜索网站 &nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.zcoder.com.cn/">零度coder</a></p>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery.jslides.js"></script>
+</body>
+</html>

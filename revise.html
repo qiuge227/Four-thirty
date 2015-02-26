@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="renderer" content="webkit">
+<meta name="keywords" content=""/>
+<meta name="description" content=""/> 
+<link rel="shortcut icon" href=""/>
+<title>主页信息修改</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function previewImage(file)
+
+{
+  var div = document.getElementById('preview');
+  var MAXWIDTH  = div.width;
+  var MAXHEIGHT = div.height;
+  
+  if (file.files && file.files[0])
+  {
+   div.innerHTML = '<img id=imghead>';
+    var img = document.getElementById('imghead');
+    img.onload = function(){
+      var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+      img.width = rect.width;
+      img.height = rect.height;
+      img.style.marginLeft = rect.left+'px';
+      img.style.marginTop = rect.top+'px';
+    }
+   var reader = new FileReader();
+    reader.onload = function(evt){img.src = evt.target.result;}
+    reader.readAsDataURL(file.files[0]);
+  }
+  else
+  {
+    var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+    file.select();
+    var src = document.selection.createRange().text;
+    div.innerHTML = '<img id=imghead>';
+    var img = document.getElementById('imghead');
+    img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+    status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+    div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;margin-left:"+rect.left+"px;"+sFilter+src+"\"'></div>";
+  }
+
+}
+
+function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+    var param = {top:0, left:0, width:width, height:height};
+    if( width>maxWidth || height>maxHeight )
+    {
+        rateWidth = width / maxWidth;
+        rateHeight = height / maxHeight;
+        if( rateWidth > rateHeight )
+        {
+            param.width =  maxWidth;
+            param.height = Math.round(height / rateWidth);
+        }else
+        {
+            param.width = Math.round(width / rateHeight);
+            param.height = maxHeight;
+       }
+    }
+    param.left = Math.round((maxWidth - param.width) / 2);
+    param.top = Math.round((maxHeight - param.height) / 2);
+    return param;
+}
+</script>
+</head>
+<body>
+<div class="login">
+<a id="modal-929631" role="button" data-toggle="modal">秋阁</a>
+</div>
+<div  id="search">
+<a href="index.html"><img src="images/search_img/school.png"/></a>
+</div>
+<!-- 背景自动切换开始 -->
+<div id="full-screen-slider">
+<ul id="slides">
+<li><img src="images/body (1).jpg"/></li>
+<li><img src="images/body (2).jpg"/></li>
+<li><img src="images/body (3).jpg"/></li>
+</ul>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid" id="search_list">
+    	<!--左栏开始--->
+		<div class="span8">
+        	<div class="span6">
+                <!--轮播图开始-->
+                <div id="preview">
+    <img id="imghead" width="400" height="300" border="0" src='images/search_img/people.jpg'><!--无预览时的默认图像，自己弄一个-->
+</div><br/><input type="file" onchange="previewImage(this)" />
+                <!--轮播图结束-->
+            </div>
+            <div class="span6">
+                <strong>地区：</strong><input type="text"/><br/>
+                <strong>性质：</strong><input type="text"/><br/>
+                <strong>电话：</strong><input type="text"/><br/>
+                <strong>邮编：</strong><input type="text"/><br/>
+                <strong>学段：</strong><input type="text"/><br/>
+                <strong>校址： </strong><input type="text"/><br/>
+                <strong>网址：</strong><a href="http://www.zcoder.com.cn"><input type="text"/></a>
+            </div>
+            <div class="span12">
+                <h4>托管班简介</h4>
+                <p>　<textarea id=cmt_content onBlur="if(this.innerHTML==''){this.innerHTML='托管班简介';this.style.color='#666'}" style="COLOR: #666;border:1px solid #ccc;width:90%;height:100px;" onFocus="if(this.innerHTML=='托管班简介'){this.innerHTML='';this.style.color='#333'}">托管班简介</textarea>
+                </p>
+			</div>
+            <div class="span12">
+            	<h4>名师风采</h4>
+            </div>
+            <div class="span12">
+                <div class="span6" id="teacher_con">
+                    <div class="media">
+                        <a href="javascript:;" class="pull-left"><img src="images/search_img/people.jpg" class="media-object" alt='' /></a><h4><strong>姓名：</strong>张治齐 &nbsp;&nbsp;<strong>职务：</strong>校长</h4>
+                            <p><strong>简介：</strong>张治齐，男，生于1962年5月11日，北京人，汉族，中共党员，研究生学历，小学高级教师</p>
+                    </div>
+                </div>
+                <div class="span6" id="teacher_con">
+                    <div class="media">
+                        <a href="javascript:;" class="pull-left"><img src="images/search_img/people.jpg" class="media-object" alt='' /></a><h4><strong>姓名：</strong>张治齐 &nbsp;&nbsp;<strong>职务：</strong>校长</h4>
+                            <p><strong>简介：</strong>张治齐，男，生于1962年5月11日，北京人，汉族，中共党员，研究生学历，小学高级教师</p>
+                    </div>
+                </div>
+            </div>
+			<div class="span12">
+                <h4>招生范围</h4>
+                <p><textarea id=cmt_content onBlur="if(this.innerHTML==''){this.innerHTML='招生范围';this.style.color='#666'}" style="COLOR: #666;border:1px solid #ccc;width:90%;height:100px;" onFocus="if(this.innerHTML=='招生范围'){this.innerHTML='';this.style.color='#333'}">招生范围</textarea></p>
+			</div>
+            <div class="span12">
+            <button onClick="btn_submit" class="btn btn-danger" style="width:60px;margin-bottom:20px;">保存</button>
+            </div>
+		</div>
+    	<!--左栏结束--->
+    	<!--右栏开始--->
+		<div class="span4">
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+			<div class="media">
+				 <a href="javascript:;" class="pull-left"><img src="images/search_img/xuexiao.png" class="media-object" alt='' /></a><p class="media-heading"><a href="index_list.html">鞍山市岫岩满族自治县黄花甸九年一贯制学校—初中部</a></p>
+			</div>
+            
+		</div>
+    	<!--右栏结束--->
+        
+	</div>
+</div>
+
+<div id="full-screen-footer">
+<div class="footer">
+<p>@四点半专业托管班搜索网站 &nbsp;&nbsp;&nbsp;&nbsp;技术支持：<a href="http://www.zcoder.com.cn/">零度coder</a></p>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery.jslides.js"></script>
+</body>
+</html>

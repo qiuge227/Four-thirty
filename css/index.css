@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0 auto;padding:0;}
+.row-fluid{margin:0;padding:0;}
+/*以下跟搜索有关*/
+.login{width:100%;height:35px; background:#333333;}
+.login a{color:#fff; float:right; line-height:35px;margin-right:5%;}
+
+#search{padding-top:80px;margin:0 auto;width:100%;position:absolute;z-index:990; text-align:center;}
+#search_c{padding-top:40px;margin:0 auto;width:100%;height:100px;background:url(../images/bg.jpg); overflow:hidden;}
+#search_c img{margin-left:20px; float:left; width:150px;height:50px;}
+.form-search{width:60%;margin:0 auto; text-align:center; margin:0 auto; position:relative;margin-top:5px;}
+
+#search_input{width:96%;height:30px;padding-left:10px;border:transparent solid 1px;
+	border-left: none;border-right: none;outline:0;	background-color:rgba(253, 253, 253, 0.4);
+	font-family:"微软雅黑";font-size:17px;color:#fff;	position:relative;	z-index:1;	border-radius:0px;}
+#searchbutton{width:38px;height:38px;border:transparent solid 1px;	border-left: none;background-color:rgba(253, 253, 253, 0.4);	background-image: url(../images/a.png);
+	background-size: 70%;background-repeat: no-repeat;background-position: center;
+	border-radius:0px; position:absolute;top:0;right:0; z-index:9;}
+#searchbutton:hover{background-color:rgba(253, 253, 253, 0.6);}
+#searchbutton:active{background-color:rgba(253, 253, 253, 0.4);}
+
+/*背景自动轮播*/
+#full-screen-slider { width:100%; height:350px;position:relative; overflow:hidden;}
+#slides { display:block; width:100%; height:350px; list-style:none; padding:0; margin:0; position:relative; }
+#slides li { display:block; width:100%; height:100%; list-style:none; padding:0; margin:0; position:absolute}
+#slides li img{ width:100%;height:350px;}
+#slides li a {display:block; width:100%; height:100%; text-indent:-9999px}
+#pagination {display:block; list-style:none; position:absolute; left:50%; top:90%; z-index:999;  padding:5px 15px 5px 0; margin:0}
+#pagination li {display:block; list-style:none; width:10px; height:10px; float:left; margin-left:15px; border-radius:5px; background:#FFF }
+#pagination li a {display:block; width:100%; height:100%; padding:0; margin:0;  text-indent:-9999px;}
+#pagination li.current { background:#0092CE}
+/*footer*/
+#full-screen-footer{ width:100%; height:40px;position:relative; overflow:hidden; background:#333333;}
+.footer p{ text-align:center; line-height:40px;color:#ccc;}
+
+/*搜索列表*/
+#search_list{ margin:0 auto;padding-top:20px;}
+.media img{width:50px;height:30px;border:1px solid #f2f2f2;}
+#search_list{margin:0 auto;}
+.media{ border-bottom:1px dashed #ccc;}
+#search_list_c .media{padding:10px;}
+#search_list_c .media img{width:100px;height:60px;}
+#search_list_c strong{margin-left:5px;}
+
+/*内容页*/
+#teacher_con .media img{width:120px;height:160px;}
+.span4 img{width:50px;height:60px;}
+/*修改页面*/
+#preview{width:100%;height:100%;border:1px solid #000;overflow:hidden;}
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+.span6 input{width:70%;}
+/*屏幕适配*/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-width : 480px) {
+.media-heading{ line-height:30px; font-size:16px;}
+#search_list_c .media-heading{ line-height:30px; font-size:14px;}
+#search_c #search_input{width:55%;height:30px;}
+.span6,.span4 p{ font-size:10px;}
+.span4 img{width:50px;height:80px;}
+#teacher_con .media img{width:150px;height:160px;}
+	}
+@media(max-width:767px){
+.media-heading{ line-height:30px; font-size:16px;}
+#search_list_c .media-heading{ line-height:30px; font-size:14px;}
+#search_c #search_input{width:55%;height:30px;}
+.span6,.span4 p{ font-size:10px;}
+.span4 img{width:50px;height:80px;}
+#teacher_con .media img{width:150px;height:160px;}
+	}
+@media(min-width:768px){
+.media-heading{ line-height:30px; font-size:18px;}
+#search_c #search_input{width:66%;height:30px;}
+	}
+@media(min-width:992px){
+#search_list,#search_list_c{width:900px;margin:0 auto;}
+.media-heading{ line-height:30px; font-size:18px;}
+#search_c #search_input{width:87%;height:30px;}
+	}
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+#search_list,#search_list_c{width:1000px;margin:0 auto;}
+.media-heading{ line-height:30px; font-size:18px;}
+	}
